@@ -191,3 +191,4 @@ class Chat {
             this.bttvZeroWidth.includes(name));
     }
 }
+exports.default = Chat;
