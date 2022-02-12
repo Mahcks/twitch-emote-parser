@@ -28,6 +28,7 @@ class Chat {
    * @param {Number} duplicateEmoteLimit Maxium number of emotes permitted for a single message
    * @param {Number} duplicateEmoteLimitPleb Maximum number of emotes permitted for a single message from an unsubscribed user, defaults to maximumEmoteLimit.
    * @param {Number} duplicateEmoteLimit Number of duplicate emotes permitted for a single message
+   * @param {Number} maxEmoteLimit Max limit of emotes per message
    * @param {Object} emoteSettings Enable/disable certain category of emotes
    * @param {Boolean} emoteSettings.channelEmotes Twitch channel sub emotes
    * @param {Boolean} emoteSettings.bttv BTTV channel emotes
@@ -106,7 +107,7 @@ class Chat {
 
     let emoteCache: object[] = [];
     let test = text.match(this.emoteRegex);
-    
+
     if (test !== null) {
       test = this.config.maxEmoteLimit ? test.splice(0, this.config.maxEmoteLimit) : test;
 
@@ -114,15 +115,16 @@ class Chat {
       unique.forEach(u => {
         let eCount = test?.filter(x => x === u).length;
         if (eCount! >= maxDuplicates!) eCount! = maxDuplicates!;
-        
+
         let foundEmote = this.emotes.filter(emote => {
           return emote.name === u;
         });
 
-        emoteCache.push({count: eCount, emote: foundEmote});
+        emoteCache.push({ count: eCount, emote: foundEmote });
       });
 
       this.dispatch("emotes", emoteCache);
+      emoteCache = [];
     }
   }
 
@@ -237,4 +239,4 @@ class Chat {
   }
 }
 
-export default Chat; 
+export default Chat;
