@@ -1,5 +1,6 @@
 import axios from "axios";
 import { Badges, ChatUserstate, Client } from "tmi.js";
+import { Config, Emote } from "./types";
 
 const isPleb = (badges: Badges) => {
   return badges ? (

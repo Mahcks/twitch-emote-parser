@@ -1,4 +1,4 @@
-interface Config {
+export interface Config {
   channel: string;
   duplicateEmoteLimit: number;
   duplicateEmoteLimitPleb: number | null;
@@ -6,13 +6,13 @@ interface Config {
   emoteSettings: EmoteSettings;
 }
 
-interface EmoteTypes {
+export interface EmoteTypes {
   ffz: string[];
   bttv: string[];
   sevenTV: string[];
 }
 
-interface EmoteSettings {
+export interface EmoteSettings {
   channelEmotes: boolean;
   ffz: boolean;
   ffzGlobal: boolean;
@@ -22,11 +22,11 @@ interface EmoteSettings {
   sevenTVGlobal: boolean;
 }
 
-interface EmoteObject {
+export interface EmoteObject {
   array: Emote[]
 }
 
-interface Emote {
+export interface Emote {
   name: string;
   url: string;
   service: string;
