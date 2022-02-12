@@ -13,7 +13,7 @@ const isPleb = (badges: Badges) => {
   ) : false;
 }
 
-class Chat {
+export class Chat {
 
   config: Config;
   emotes: Emote[];
@@ -239,5 +239,3 @@ class Chat {
     );
   }
 }
-
-export default Chat;

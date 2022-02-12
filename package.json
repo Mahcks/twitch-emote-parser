@@ -1,9 +1,8 @@
 {
   "name": "twitch-emote-parser",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "NPM package that parses Twitch chat for 3rd party, and channel emotes.",
-  "main": "dist/main.js",
-  "types": "dist/types.d.ts",
+  "main": "dist/index.js",
   "scripts": {
     "test": "jest",
     "build": "tsc",
